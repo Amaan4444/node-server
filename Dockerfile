@@ -8,8 +8,14 @@ FROM node
 # CMD cd ./packages/server && ts-node -T src/index.ts
 # USER node
 WORKDIR /home/node/app
-COPY app /home/node/app
+COPY . /home/node/app
 RUN npm install
 ENV NODE_ENV=production
 EXPOSE 8080
 CMD npm run app
+# WORKDIR "/app"
+# COPY ./package.json ./
+# RUN npm install
+# COPY ./ ./
+# EXPOSE 8080
+# CMD ["npm", "run", "start"]
